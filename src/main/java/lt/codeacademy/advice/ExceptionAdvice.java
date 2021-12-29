@@ -1,5 +1,6 @@
 package lt.codeacademy.advice;
 
+import lt.codeacademy.exception.FileException;
 import lt.codeacademy.exception.ProductNotFoundException;
 import lt.codeacademy.exception.data.ExceptionResponse;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -21,11 +22,11 @@ public class ExceptionAdvice {
     public ExceptionResponse handlingEmptyResultDataAccess(Exception exception){
         return new ExceptionResponse(exception.getMessage(),HttpStatus.NOT_FOUND);
     }
-//    @ExceptionHandler(FileExeption.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public ExceptionResponse handlingFileExeption(FileExeption exception){
-//        return new ExceptionResponse(exception.getMessage(),HttpStatus.BAD_REQUEST);
-//    }
+    @ExceptionHandler(FileException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ExceptionResponse handlingFileExeption(FileException exception){
+        return new ExceptionResponse(exception.getMessage(),HttpStatus.BAD_REQUEST);
+    }
 
 
 }

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(ROOT + PRODUCTS)
+@RequestMapping(PRODUCTS)
 @Api(tags = "Product Controller")
 public class ProductController {
     private final ProductService productService;
@@ -43,9 +43,10 @@ public class ProductController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody Product product) {
-        productService.createProduct(product);
+    public UUID createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
     }
+
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)

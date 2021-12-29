@@ -13,12 +13,14 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
+
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
-    public void createProduct(Product product) {
-        productRepository.save(product);
+
+    public UUID createProduct(Product product) {
+        return productRepository.save(product).getId();
     }
 
     public List<Product> getProduct() {

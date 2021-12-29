@@ -1,5 +1,6 @@
 package lt.codeacademy.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
@@ -7,6 +8,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
+import java.util.Set;
 import java.util.UUID;
 
 @Setter
@@ -20,16 +22,19 @@ public class Product {
     @Type(type = "uuid-char")
     private UUID id;
     @NotBlank
-    @Size(min=4,max = 50, message = "{validation.Size.product.name}")
+    @Size(min=4,max = 100, message = "{validation.Size.product.name}")
     private String name;
     @NotBlank
     private String category;
     @NotBlank
-    @Size(max=300)
+    @Size(max=1000)
     private String description;
     @PositiveOrZero
     @Max(1000)
     private int quantity;
     @Positive
     private BigDecimal price;
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonManagedReference
+    private Set<File> images;
 }

@@ -45,7 +45,4 @@ public class UserService implements UserDetailsService {
                 Set.of(new Role(UUID.fromString("777e0319-0f1c-43cf-b1dc-62ce282d7765"), "USER'")));
         userRepository.save(user);
     }
-    public void checkUsername(User user){
-    }
-
 }

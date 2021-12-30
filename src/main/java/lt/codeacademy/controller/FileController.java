@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiResponses;
 import lt.codeacademy.entity.File;
 import lt.codeacademy.service.FileService;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -38,12 +39,13 @@ public class FileController {
             @ApiResponse(code = 404, message = "Failas nerastas")
     }
     )
-    @PostMapping(BLOBS+PRODUCT)
-    public void saveFileAsBlob(@RequestParam MultipartFile multipartFile,@PathVariable(ID_VARIABLE) UUID productId) {
-        fileService.saveFileInDbAsBlob(productId,multipartFile);
+    @PostMapping(BLOBS + PRODUCT)
+    public void saveFileAsBlob(@RequestParam MultipartFile multipartFile, @PathVariable(ID_VARIABLE) UUID productId) {
+        fileService.saveFileInDbAsBlob(productId, multipartFile);
     }
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<File> getAllPic(){
+    public List<File> getAllPic() {
         return fileService.getFiles();
     }
 
@@ -59,12 +61,12 @@ public class FileController {
         File file = fileService.getFileById(id);
 
         Resource resource = new ByteArrayResource(file.getBytes());
+
         return ResponseEntity.ok()
                 .contentType(MediaType.valueOf(file.getMediaType()))
                 .headers(getHeaders(file.getFileName()))
                 .body(resource);
     }
-
     private HttpHeaders getHeaders(String fileName) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Content-Disposition", "attachment; filename=\"" + fileName + "\"");

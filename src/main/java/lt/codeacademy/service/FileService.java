@@ -2,14 +2,12 @@ package lt.codeacademy.service;
 
 import lombok.extern.slf4j.Slf4j;
 import lt.codeacademy.entity.File;
-import lt.codeacademy.entity.Product;
 import lt.codeacademy.exception.FileException;
 import lt.codeacademy.repository.FileRepository;
 import lt.codeacademy.repository.ProductRepository;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -19,7 +17,6 @@ import java.util.UUID;
 public class FileService {
     private static final int MAX_SIZE = 10000000;
     private final Set<String> types;
-
     private final FileRepository fileRepository;
     private final ProductRepository productRepository;
 
@@ -39,7 +36,8 @@ public class FileService {
         }
 
     }
-    public void saveFileInDbAsBlob(UUID id ,MultipartFile multipartFile) {
+
+    public void saveFileInDbAsBlob(UUID id, MultipartFile multipartFile) {
         validateFile(multipartFile);
 
         try {
@@ -52,14 +50,15 @@ public class FileService {
             throw new FileException(String.format("Cannot save %s file", multipartFile.getOriginalFilename()));
         }
     }
-    public List<File> getFiles(){
+
+    public List<File> getFiles() {
         return fileRepository.findAll();
     }
+
     public File getFileById(UUID id) {
         return fileRepository.findById(id).orElseThrow(()
-                -> new FileException(String.format("Cannot find file by %s UUID",id)));
+                -> new FileException(String.format("Cannot find file by %s UUID", id)));
     }
-
 }
 
 

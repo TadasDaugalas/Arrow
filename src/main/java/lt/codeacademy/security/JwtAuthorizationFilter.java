@@ -31,7 +31,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
             chain.doFilter(request, response);
             return;
         }
-        if(SecurityContextHolder.getContext().getAuthentication() == null) {
+        if (SecurityContextHolder.getContext().getAuthentication() == null) {
             String token = authorization.replace("Bearer ", "");
             Authentication authentication = jwtService.parseToken(token);
             SecurityContextHolder.getContext().setAuthentication(authentication);

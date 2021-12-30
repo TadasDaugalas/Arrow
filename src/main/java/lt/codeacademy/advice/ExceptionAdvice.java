@@ -27,6 +27,4 @@ public class ExceptionAdvice {
     public ExceptionResponse handlingFileExeption(FileException exception){
         return new ExceptionResponse(exception.getMessage(),HttpStatus.BAD_REQUEST);
     }
-
-
 }

@@ -14,20 +14,20 @@ import java.util.UUID;
 @Setter
 @Getter
 @Entity
-@Table(name ="Products")
+@Table(name = "Products")
 public class Product {
     @Id
     @GeneratedValue
-    @Column(columnDefinition = "varchar(36)",updatable = false)
+    @Column(columnDefinition = "varchar(36)", updatable = false)
     @Type(type = "uuid-char")
     private UUID id;
     @NotBlank
-    @Size(min=4,max = 100, message = "{validation.Size.product.name}")
+    @Size(min = 4, max = 100, message = "{validation.Size.product.name}")
     private String name;
     @NotBlank
     private String category;
     @NotBlank
-    @Size(max=1000)
+    @Size(max = 1000)
     private String description;
     @PositiveOrZero
     @Max(1000)

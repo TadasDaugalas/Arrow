@@ -13,11 +13,9 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-
 
     public UUID createProduct(Product product) {
         return productRepository.save(product).getId();
@@ -37,9 +35,5 @@ public class ProductService {
 
     public void deleteProduct(UUID uuid) {
         productRepository.deleteById(uuid);
-    }
-
-    public List<Product> findProducts(String query) {
-        return productRepository.findLike(query);
     }
 }

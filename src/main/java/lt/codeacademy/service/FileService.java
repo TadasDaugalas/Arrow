@@ -8,6 +8,7 @@ import lt.codeacademy.repository.ProductRepository;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -39,7 +40,6 @@ public class FileService {
 
     public void saveFileInDbAsBlob(UUID id, MultipartFile multipartFile) {
         validateFile(multipartFile);
-
         try {
             File file = new File(multipartFile.getOriginalFilename(), multipartFile.getSize(), multipartFile.getContentType(), multipartFile.getBytes());
             file.setProduct(productRepository.getById(id));
@@ -49,10 +49,6 @@ public class FileService {
             log.error("Cannot save file", e);
             throw new FileException(String.format("Cannot save %s file", multipartFile.getOriginalFilename()));
         }
-    }
-
-    public List<File> getFiles() {
-        return fileRepository.findAll();
     }
 
     public File getFileById(UUID id) {

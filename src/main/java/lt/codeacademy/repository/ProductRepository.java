@@ -11,7 +11,4 @@ import java.util.UUID;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, UUID> {
-
-    @Query("select p from Product p where p.name like %:text% or p.description like %:text%")
-    List<Product> findLike(@Param("text") String text );
 }

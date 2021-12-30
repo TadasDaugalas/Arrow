@@ -30,15 +30,13 @@ public class File {
     private byte[] bytes;
 
     @ManyToOne
-    @JoinColumn(name="product_id", nullable=true)
+    @JoinColumn(name = "product_id", nullable = true)
     @JsonBackReference
     private Product product;
 
     @CreationTimestamp
     private final LocalDateTime timestamp = LocalDateTime.now();
-    public File(String fileName, long size, String mediaType) {
-        this(fileName,size,mediaType,null);
-    }
+
     public File(String fileName, long size, String mediaType, byte[] bytes) {
         this.fileName = fileName;
         this.size = size;

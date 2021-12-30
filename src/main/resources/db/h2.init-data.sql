@@ -40,23 +40,6 @@ Pigi, tvirta, bet lanksti apsauga – geras pasirinkimas jaunimui ir studentams.
        ('58a95af7-8b83-4a08-8001-0f865db8ea23', 'Užmaunama rankų apsauga Avalon Stretchy Guard Slip On', 'Priedai', 'Spalva: juoda, mėlyna, žalia, pilka, oranžinė, violetinė, raudona.
 Dydžiai: S – M – L – XL', 6, 7.90);
 
-INSERT INTO FILES (id, bytes, file_name, media_type, size, timestamp, product_id)
-VALUES ('e5a93d16-2393-47ea-8114-d47b3366f4fa', '42185', 'Lankas-Rolan-Snake.jpg', 'image/jpeg', '40387', null,
-        '48a95af7-8b83-4a08-8001-0f865db8ea26'),
-       ('e2fb4a8d-8f6b-4881-8be6-91d6bcdfdc77', '42184', 'bow-Rolan-Snake.jpg', 'image/jpeg', '44522', null,
-        '48a95af7-8b83-4a08-8001-0f865db8ea26'),
-       ('cd8fee2e-33a2-4160-942b-d276a08cfcee', '42186', 'lankas-pigiau-1.jpg', 'image/jpeg', '33152', null,
-        '48a95af7-8b83-4a08-8001-0f865db8ea26'),
-       ('c17f2e84-267d-4e66-a3f2-aedf49003004', '42288', 'Lankas-Ragim-Red-Deer.jpg', 'image/jpeg', '32917', null,
-        'ebdee4f9-5763-4afc-85ed-98b2fdefb35f'),
-       ('8dd50bb7-04a8-4eee-adf5-7c522d379352', '42289', 'lankas-core-jet.jpg', 'image/jpeg', '16005', null,
-        '15a95af7-8b83-4a08-8001-0f865db8ea27'),
-       ('3187b480-fce4-4bfd-b515-bc8eb82f9f57', '42291', 'Ragim-Bow-Red-Deer.jpg', 'image/jpeg', '39793', null,
-        'ebdee4f9-5763-4afc-85ed-98b2fdefb35f'),
-       ('b9187839-130d-46a7-82fa-b1ca0dd69890', '43506', 'defoult.jpg', 'image/jpeg', '936', null,
-        null);
-
-
 INSERT INTO USERS(id, username, name, surname, country, city, street, zip_Code, phone_Number, password)
 VALUES ('b606d6f2-f79c-4219-a33b-68d519b48048', 'user', 'user', 'useriauskas', 'Litvinas', 'Vilnius', 'Savanoriu',
         '854251', '860532164', '{bcrypt}$2a$10$jYIbAef1H7S.womsk7MRtOCSEx/DgM7CZ1nNeLLzoZ/OPs0a25DV2'),

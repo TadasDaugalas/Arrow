@@ -15,6 +15,6 @@ public class ExceptionResponse {
     public ExceptionResponse(String message, HttpStatus status) {
         this.message = message;
         this.status = status.value();
-        timeStamp=LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
+        timeStamp = LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
     }
 }

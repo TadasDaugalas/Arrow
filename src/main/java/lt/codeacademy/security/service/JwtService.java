@@ -54,7 +54,7 @@ public class JwtService {
 
             String userName = body.getSubject();
 
-            List<SimpleGrantedAuthority> roles = ((List<String>)body.get("roles")).stream().map(SimpleGrantedAuthority::new).toList();
+            List<SimpleGrantedAuthority> roles = ((List<String>) body.get("roles")).stream().map(SimpleGrantedAuthority::new).toList();
 
             return new UsernamePasswordAuthenticationToken(userName, null, roles);
         } catch (Exception e) {

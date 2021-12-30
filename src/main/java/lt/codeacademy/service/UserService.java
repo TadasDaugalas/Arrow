@@ -1,7 +1,5 @@
 package lt.codeacademy.service;
 
-
-
 import lt.codeacademy.entity.Role;
 import lt.codeacademy.entity.User;
 import lt.codeacademy.repository.UserRepository;
